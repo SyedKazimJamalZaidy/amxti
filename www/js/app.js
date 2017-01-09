@@ -1,5 +1,5 @@
 var app = angular.module('demo', ['ionic'])
-
+    
     .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
    
        $ionicConfigProvider.backButton.text('').previousTitleText(false);
