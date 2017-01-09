@@ -1,0 +1,67 @@
+<!-- Single Trip Tab -->
+<ion-view title="Flights Booking" hide-back-button="true">
+      <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+      </ion-nav-buttons>
+
+      <ion-content has-subheader="false">
+              <div class="list">
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label">From</span>
+                  <input type="text" placeholder="Jinnah International Airport" id="from">
+                </label>
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label">To</span>
+                  <input type="text" placeholder="Allama Iqbal International Airport" id="to">
+                </label>
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label">Departure Date</span>
+                  <input type="date" id="departDate">
+                </label>
+
+                <div class="row">
+                  <div class="col">
+                    <label class="item item-input item-stacked-label">
+                      <span class="input-label">Adults</span>
+                      <input type="number" placeholder="0">
+                    </label>
+                  </div>
+                  <div class="col">
+                    <label class="item item-input item-stacked-label">
+                      <span class="input-label">Children</span>
+                      <input type="number" placeholder="0">
+                    </label>
+                  </div>
+                  <div class="col">
+                    <label class="item item-input item-stacked-label">
+                      <span class="input-label">Seniors</span>
+                      <input type="number" placeholder="0">
+                    </label>
+                  </div>
+                </div>
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Preffered Flight
+                  </div>
+                  <select>
+                    <option ng-repeat="names in airlineName">{{names}}</option>
+                  </select>
+                </label>
+              </div>
+              <a class="button button-block button-positive" ng-click="flightDetails()">
+                Proceed
+              </a>
+            </ion-content>
+
+      <ion-tabs class="tabs-icon-top tabs-striped">
+      <ion-tab title="Round Trip" icon-on="ion-paper-airplane" icon-off="ion-paper-airplane" ui-sref="menu.round">
+      </ion-tab>
+
+      <ion-tab title="Single Trip" icon-on="ion-android-plane" icon-off="ion-android-plane" ui-sref="menu.single">
+      </ion-tab>
+
+      <ion-tab title="Mutli City" icon-on="ion-planet" icon-off="ion-planet" ui-sref="menu.multicity">
+      </ion-tab>
+    </ion-tabs>
+    </ion-view>
+ 

@@ -1,0 +1,37 @@
+<!-- Flight Details Page -->
+<ion-view view-title="Flight Details">
+            <ion-content has-subheader="false">
+              <div class="list" ng-repeat="data in finalData">
+                <div class="item item-divider">
+                  Flight Itenirary Start
+                </div>
+                  <div ng-repeat="item in data">
+                    <a class="item">
+                    Departure Airport: {{item.departureAirport}}</br>
+                    Departure Time: {{item.departureDate}}</br>
+                    Departure Date: {{item.departureTime}}
+                    </a>
+                    
+                    <a class="item">
+                    Arrival Airport: {{item.arrivalAirport}}</br>
+                    Arrival Date: {{item.arrivalDate}}</br>
+                    Arrival Time: {{item.arrivalTime}}
+                    </a>
+                    
+                    <a class="item">Total Flight Time: {{item.elapsedTime | time: 'mm'}}</a>
+
+                    <a class="item">Flight Details: {{item.flightCode}}:  {{item.flightNumber}}</a>
+                    <div class="item item-divider">
+                      Flight Route End</br>
+                      Total Fare: {{item.totalFare | currency}}
+                    </div>
+
+                  </div>
+                  <div class="item item-divider">
+                    Flight Itenirary End
+
+                  </div>
+                  <button class="button button-block button-balanced">Proceed</button>
+                </div>
+            </ion-content>
+          </ion-view>
