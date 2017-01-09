@@ -78,6 +78,7 @@ var app = angular.module('demo', ['ionic'])
                 views: {
                     'view-content' : {
                         templateUrl: 'templates/flightconfirmation.html',
+                        controller: 'FlightConfirmationController'
                     }
                 }
             })

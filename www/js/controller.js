@@ -2,6 +2,7 @@ var resultData = [];//result of flights coming from Sabre api
 var destinationName = []; //destination name coming from solude.amxti server
 var destinationIATA = []; //IATA name coming from solude.amxti server
 var result; //Response result of Airports from solude amxti
+var selectedFlight;
 
 app.controller('MenuController', function($scope, $ionicSideMenuDelegate) {
       $scope.toggleLeft = function() {
@@ -65,8 +66,6 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
       var departDate = document.getElementById('departDate').value;
       var arrDate = document.getElementById('arrDate').value;
 
-      console.log(from);
-      console.log(to);
       var fromIATA;
       var toIATA;
       for (var i = 0; i < result.length; i++) {
@@ -336,4 +335,15 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
 //Flight Detail Controller
 app.controller('FlightDetailController', function($scope, $ionicSideMenuDelegate, $state) {
         $scope.finalData = resultData;
+        $scope.toConfirm = function($index){
+          selectedFlight = $scope.finalData[$index];
+          $state.go('menu.flightconfirmation');
+        }
     })
+//FLight Detail Controller End
+
+//Flight COnfrimation Controller
+app.controller('FlightConfirmationController', function($scope, $ionicSideMenuDelegate) {
+      $scope.selectedFlight = selectedFlight;
+    })
+//Flight Confirmation Controller End
