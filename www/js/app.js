@@ -82,6 +82,26 @@ var app = angular.module('demo', ['ionic'])
                     }
                 }
             })
+            //User Details Page
+            .state('menu.userdetails',{
+                url: '/userdetails',
+                views: {
+                    'view-content' : {
+                        templateUrl: 'templates/userdetails.html',
+                        controller: 'UserDetailsController'
+                    }
+                }
+            })
+            //Payment Method Page
+            .state('menu.paymentmethod',{
+                url: '/paymentmethod',
+                views: {
+                    'view-content' : {
+                        templateUrl: 'templates/paymentmethod.html',
+                        controller: 'PaymentMethodController'
+                    }
+                }
+            })
             .state('menu.drink', {
                 url: '/drink',
                 views: {

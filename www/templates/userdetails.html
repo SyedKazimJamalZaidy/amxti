@@ -1,0 +1,38 @@
+<!-- User Details Page -->
+<ion-view view-title="User Details">
+  <ion-content has-subheader="false">
+  <h4>Please enter your details according to your passport:</h4>
+    <div class="list">
+    	<label class="item item-input item-select">
+		    <div class="input-label">
+		      Title
+		    </div>
+		    <select>
+		      <option selected>Mr</option>
+		      <option>Miss</option>
+		    </select>
+  		</label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">First Name</span>
+	    <input type="text" placeholder="First Name">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Middle Name</span>
+	    <input type="text" placeholder="Middle Name">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Last Name</span>
+	    <input type="text" placeholder="Last Name">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Email</span>
+	    <input type="Email" placeholder="Email">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Contact #</span>
+	    <input type="number" placeholder="Contact #">
+	  </label>
+	</div>
+	<button class="button button-assertive button-block" ng-click="toPayment()">Proceed to payment information</button>
+  </ion-content>
+</ion-view>

@@ -343,7 +343,24 @@ app.controller('FlightDetailController', function($scope, $ionicSideMenuDelegate
 //FLight Detail Controller End
 
 //Flight COnfrimation Controller
-app.controller('FlightConfirmationController', function($scope, $ionicSideMenuDelegate) {
+app.controller('FlightConfirmationController', function($scope, $ionicSideMenuDelegate, $state) {
       $scope.selectedFlight = selectedFlight;
+      $scope.toUserDetails = function(){
+        $state.go('menu.userdetails');
+      }
     })
 //Flight Confirmation Controller End
+
+//User Details Controller
+app.controller('UserDetailsController', function($scope, $ionicSideMenuDelegate, $state) {
+      $scope.toPayment = function(){
+        $state.go('menu.paymentmethod');
+      }
+    })
+//User Details Controller End
+
+//Payment Method Controller
+app.controller('PaymentMethodController', function($scope, $ionicSideMenuDelegate, $state) {
+      
+    })
+//Payment Method Controller End

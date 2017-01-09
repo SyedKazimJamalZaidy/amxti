@@ -1,0 +1,50 @@
+<!-- Payment Method Page -->
+<ion-view view-title="Payment Method">
+  <ion-content has-subheader="false">
+  <h4>Please enter your details carefully:</h4>
+    <div class="list">
+
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Card Number</span>
+	    <input type="number" placeholder="Card Number">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Cardholder first name</span>
+	    <input type="text" placeholder="Cardholder first name">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Cardholder last name</span>
+	    <input type="text" placeholder="Cardholder last name">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Card Expiration Date</span>
+	    <input type="month">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Security Code</span>
+	    <input type="number" placeholder="Security Code">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Country</span>
+	    <input type="text" placeholder="Country">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Address</span>
+	    <textarea placeholder="Address"></textarea>
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">City</span>
+	    <input type="text" placeholder="City">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Town</span>
+	    <input type="text" placeholder="Town">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">ZipCode</span>
+	    <input type="number" placeholder="ZipCode">
+	  </label>
+	</div>
+	<button class="button button-assertive button-block" ng-click="toPayment()">Proceed to final summary</button>
+  </ion-content>
+</ion-view>
