@@ -145,14 +145,7 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
  
 
         // Getting list of Airlines
-    // $http({
-    //   method: "GET",
-    //   url: "https://api.test.sabre.com/v1/lists/utilities/airlines",
-    //   headers:{
-    //     "Authorization" : "Bearer T1RLAQKA6aogEnMRquuM4ggzJ+itThDjZxAqRmcnckoL5lg3sUOhkta0AADAN2q2+/dbzP4szzK0vVlfCaeRuG+/2kOb3rjUKEUN6yxxnHqMVzn3gJMAlpjq8dgdJN33RD2nS6ao0YF6hi6WC6mYo9a4yiHcuPVVHvhDY2Dn1Ydp/jof37iLO6Bu/yVeXchk4AoKv7oUtpc8Le1lZ9bOPC88gqrLMFzzohNTDEh63H2tGT5o5UqYAzSbArmKoMVoqJqSmk0lv98kV5tO/p3yPrJuPIkanSUV3XRHg9HDvjPa+e2QI2UoFNLzb5Bu",
-    //     "Content-Type" : "application/x-www-form-urlencoded"
-    //   }
-    // }).then(function(response){
+    
       $http({
         method: "GET",
         url: "js/airlines.json",
@@ -283,14 +276,7 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
  
 
         // Getting list of Airlines
-    // $http({
-    //   method: "GET",
-    //   url: "https://api.test.sabre.com/v1/lists/utilities/airlines",
-    //   headers:{
-    //     "Authorization" : "Bearer T1RLAQKA6aogEnMRquuM4ggzJ+itThDjZxAqRmcnckoL5lg3sUOhkta0AADAN2q2+/dbzP4szzK0vVlfCaeRuG+/2kOb3rjUKEUN6yxxnHqMVzn3gJMAlpjq8dgdJN33RD2nS6ao0YF6hi6WC6mYo9a4yiHcuPVVHvhDY2Dn1Ydp/jof37iLO6Bu/yVeXchk4AoKv7oUtpc8Le1lZ9bOPC88gqrLMFzzohNTDEh63H2tGT5o5UqYAzSbArmKoMVoqJqSmk0lv98kV5tO/p3yPrJuPIkanSUV3XRHg9HDvjPa+e2QI2UoFNLzb5Bu",
-    //     "Content-Type" : "application/x-www-form-urlencoded"
-    //   }
-    // }).then(function(response){
+
       $http({
         method: "GET",
         url: "js/airlines.json",
@@ -339,6 +325,16 @@ app.controller('FlightDetailController', function($scope, $ionicSideMenuDelegate
           selectedFlight = $scope.finalData[$index];
           $state.go('menu.flightconfirmation');
         }
+        $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
     })
 //FLight Detail Controller End
 
