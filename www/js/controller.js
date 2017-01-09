@@ -88,9 +88,9 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
           // Flight Data from server
     $http({
       method : "GET",
-      url: "https://api.test.sabre.com/v1/shop/flights?origin=JFK&destination=LAS&departuredate=2017-01-07&returndate=2017-01-08&onlineitinerariesonly=N&limit=10&offset=1&eticketsonly=N&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc",
+      url: "https://api.test.sabre.com/v1/shop/flights?origin=JFK&destination=LAX&departuredate=2017-04-07&returndate=2017-04-08&onlineitinerariesonly=N&limit=10&offset=1&eticketsonly=N&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc",
       headers:{
-        "Authorization" : "Bearer T1RLAQLh0ec/TU7ZxmSmebcTR7zTTxJt5xB5kfepZaSku0fw7poWInNOAADAaearnXxs3z4y0ubKEX9F5Z9aa00eHeJUJqhR3XAngpT2K43nrUU5l0Wa8QBh5tb4j+XfpUqfY0TkwUkWdMr76KbBhq0xFDHcY9bWBU7SggR0fXRGu/Id6LQ+/gcUF6gxpnTkBNKwPs/LSX9xy0m2RAYH1o19nx1a8/Bxabr2Z7DS444ZFgzYIbx6HYQJ73TkU3vQAtFsqYSrqtO4+y6jwPzGExe6Mc1yADYedyGGCB2s/rBdB1WtyHh0EvbwaZiN",
+        "Authorization" : "Bearer T1RLAQISKb9hc+IJZDlJhlOlCpyRDOkXVRAz52ObOnadusBsxAV1l8SUAADAzrVV511n8QWVAGRstHN82c3fgP5RS/uLVVAxL8jaXvihrV8Ha592XIDoe6o9vip6Cf+9mbfK0ngr6mzbtGW9la9JWxxkqgxjq4X8b5SO78QkQufMcWaBEnW7+4uXGYkNkaskm+GKuFBXmJG8y8KyyjGaOb7SmV7ot7srFkzSSY1f2SOb/94qS6u/7jZb1qevPty0Z0w/uEqW1uZEfbXL6TjSb+5U870Ogjv4ajs3jwbjRnj+4p78ACsJ7AACMn1y",
         "Content-Type" : "application/x-www-form-urlencoded"
       }
       }).then(function(response){
@@ -226,9 +226,9 @@ app.controller('LoginController', function($scope, $ionicSideMenuDelegate, $stat
           // Flight Data from server
     $http({
       method : "GET",
-      url: "https://api.test.sabre.com/v1/shop/flights?origin=JFK&destination=LAS&departuredate=2017-01-07&returndate=2017-01-08&onlineitinerariesonly=N&limit=10&offset=1&eticketsonly=N&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc",
+      url: "https://api.test.sabre.com/v1/shop/flights?origin=JFK&destination=LAX&departuredate=2017-04-07&returndate=2017-04-08&onlineitinerariesonly=N&limit=10&offset=1&eticketsonly=N&sortby=totalfare&order=asc&sortby2=departuretime&order2=asc",
       headers:{
-        "Authorization" : "Bearer T1RLAQLh0ec/TU7ZxmSmebcTR7zTTxJt5xB5kfepZaSku0fw7poWInNOAADAaearnXxs3z4y0ubKEX9F5Z9aa00eHeJUJqhR3XAngpT2K43nrUU5l0Wa8QBh5tb4j+XfpUqfY0TkwUkWdMr76KbBhq0xFDHcY9bWBU7SggR0fXRGu/Id6LQ+/gcUF6gxpnTkBNKwPs/LSX9xy0m2RAYH1o19nx1a8/Bxabr2Z7DS444ZFgzYIbx6HYQJ73TkU3vQAtFsqYSrqtO4+y6jwPzGExe6Mc1yADYedyGGCB2s/rBdB1WtyHh0EvbwaZiN",
+        "Authorization" : "Bearer T1RLAQISKb9hc+IJZDlJhlOlCpyRDOkXVRAz52ObOnadusBsxAV1l8SUAADAzrVV511n8QWVAGRstHN82c3fgP5RS/uLVVAxL8jaXvihrV8Ha592XIDoe6o9vip6Cf+9mbfK0ngr6mzbtGW9la9JWxxkqgxjq4X8b5SO78QkQufMcWaBEnW7+4uXGYkNkaskm+GKuFBXmJG8y8KyyjGaOb7SmV7ot7srFkzSSY1f2SOb/94qS6u/7jZb1qevPty0Z0w/uEqW1uZEfbXL6TjSb+5U870Ogjv4ajs3jwbjRnj+4p78ACsJ7AACMn1y",
         "Content-Type" : "application/x-www-form-urlencoded"
       }
       }).then(function(response){

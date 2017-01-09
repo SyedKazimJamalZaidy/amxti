@@ -42,16 +42,7 @@ var app = angular.module('demo', ['ionic'])
                     }
                 }
             })
-            //Flight Details after selection of tour
-            .state('menu.flightdetails',{
-                url: '/flightdetails',
-                views: {
-                    'view-content': {
-                        templateUrl: 'templates/flightdetails.html',
-                        controller: 'FlightDetailController'
-                    }
-                }
-            })
+           
             //Single Flight Tab
             .state('menu.single', {
                 url: '/single',
@@ -68,6 +59,25 @@ var app = angular.module('demo', ['ionic'])
                 views: {
                     'view-content': {
                         templateUrl: 'templates/multicity.html'
+                    }
+                }
+            })
+             //Flight Details after selection of tour
+            .state('menu.flightdetails',{
+                url: '/flightdetails',
+                views: {
+                    'view-content': {
+                        templateUrl: 'templates/flightdetails.html',
+                        controller: 'FlightDetailController'
+                    }
+                }
+            })
+            //Flight confirmation page
+            .state('menu.flightconfirmation',{
+                url: '/flightconfirmation',
+                views: {
+                    'view-content' : {
+                        templateUrl: 'templates/flightconfirmation.html',
                     }
                 }
             })
