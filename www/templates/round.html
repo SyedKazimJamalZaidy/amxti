@@ -6,21 +6,22 @@
 
       <ion-content has-subheader="false">
               <div class="list">
+              <form name="roundForm" novalidate>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">From</span>
-                  <input type="text" placeholder="Jinnah International Airport" id="from">
+                  <input type="text" placeholder="Jinnah International Airport" id="from" name="from" ng-model="from" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">To</span>
-                  <input type="text" placeholder="Allama Iqbal International Airport" id="to">
+                  <input type="text" placeholder="Allama Iqbal International Airport" id="to" name="to" ng-model="to" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">Departure Date</span>
-                  <input type="date" id="departDate">
+                  <input type="date" id="departDate" name="departDate" ng-model="departDate" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">Arrival Date</span>
-                  <input type="date" id="arrDate">
+                  <input type="date" id="arrDate" name="arrDate" ng-model="arrDate" required>
                 </label>
 
                 <div class="row">
@@ -52,9 +53,16 @@
                   </select>
                 </label>
               </div>
-              <a class="button button-block button-positive" ng-click="flightDetails()">
+              <a class="button button-block button-positive" ng-click="flightDetails()" ng-disabled="roundForm.$invalid">
                 Proceed
               </a>
+              <div class="padding">
+                <p ng-show="roundForm.from.$error.required && roundForm.from.$dirty && roundForm.from.$touched">*Departure destination required</p>
+                <p ng-show="roundForm.to.$error.required && roundForm.to.$dirty && roundForm.to.$touched">*Arrival destination required</p>
+                <p ng-show="roundForm.departDate.$error.required && roundForm.departDate.$dirty && roundForm.departDate.$touched">*Departure date required</p>
+                <p ng-show="roundForm.arrDate.$error.required && roundForm.arrDate.$dirty && roundForm.arrDate.$touched">*Arrival date required</p>
+              </div>
+              </form>
             </ion-content>
 
       <ion-tabs class="tabs-icon-top tabs-striped">

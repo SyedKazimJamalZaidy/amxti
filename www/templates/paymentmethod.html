@@ -2,49 +2,74 @@
 <ion-view view-title="Payment Method">
   <ion-content has-subheader="false">
   <h4>Please enter your details carefully:</h4>
+  <form name="paymentform">
     <div class="list">
 
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Card Number</span>
-	    <input type="number" placeholder="Card Number">
+	    <input type="number" placeholder="Card Number" name="cardnumber" ng-model="cardnumber" ng-minlength="12" ng-maxlength="19" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Cardholder first name</span>
-	    <input type="text" placeholder="Cardholder first name">
+	    <input type="text" placeholder="Cardholder first name" name="fname" ng-model="fname" ng-minlength="4" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Cardholder last name</span>
-	    <input type="text" placeholder="Cardholder last name">
+	    <input type="text" placeholder="Cardholder last name" name="lname" ng-model="lname" ng-minlength="4" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Card Expiration Date</span>
-	    <input type="month">
+	    <input type="month" name="expiry" ng-model="expiry" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Security Code</span>
-	    <input type="number" placeholder="Security Code">
+	    <input type="number" placeholder="Security Code" ng-maxlength="4" name="securitycode" ng-model="securitycode" required>
 	  </label>
-	  <label class="item item-input item-floating-label">
-	    <span class="input-label">Country</span>
-	    <input type="text" placeholder="Country">
-	  </label>
+	  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Country
+		    </div>
+		    <select>
+		      <option selected>None</option>
+		      <option ng-repeat="codes in countryCodes">{{codes.name}}</option>
+		    </select>
+  		</label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Address</span>
-	    <textarea placeholder="Address"></textarea>
+	    <textarea placeholder="Address" name="address" ng-model="address" ng-minlength="10" required></textarea>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">City</span>
-	    <input type="text" placeholder="City">
+	    <input type="text" placeholder="City" name="city" ng-model="city" ng-minlength="4" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
-	    <span class="input-label">Town</span>
-	    <input type="text" placeholder="Town">
+	    <span class="input-label">State/Town/Province</span>
+	    <input type="text" placeholder="Town" name="town" ng-model="town" ng-minlength="4" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">ZipCode</span>
 	    <input type="number" placeholder="ZipCode">
 	  </label>
 	</div>
-	<button class="button button-assertive button-block" ng-click="toPayment()">Proceed to final summary</button>
+	<button class="button button-assertive button-block" ng-click="toPayment()" ng-disabled="paymentform.$invalid">Proceed to final summary</button>
+	<div class="padding">
+		<p ng-show="paymentform.cardnumber.$error.required && paymentform.cardnumber.$dirty && paymentform.cardnumber.$touched">*Card number is required</p>
+		<p ng-show="paymentform.cardnumber.$error.minlength && paymentform.cardnumber.$dirty && paymentform.cardnumber.$touched">*Card number must be longer than 12 characters</p>
+		<p ng-show="paymentform.cardnumber.$error.maxlength && paymentform.cardnumber.$dirty && paymentform.cardnumber.$touched">*Card number must be shorter than 20 characters</p>
+		<p ng-show="paymentform.fname.$error.required && paymentform.fname.$dirty && paymentform.fname.$touched">*First name is required</p>
+		<p ng-show="paymentform.fname.$error.minlength && paymentform.fname.$dirty && paymentform.fname.$touched">*First name must be longer than 4 characters</p>
+		<p ng-show="paymentform.lname.$error.required && paymentform.lname.$dirty && paymentform.lname.$touched">*Last name is required</p>
+		<p ng-show="paymentform.lname.$error.minlength && paymentform.lname.$dirty && paymentform.lname.$touched">*Last name must be longer than 4 characters</p>
+		<p ng-show="paymentform.expiry.$error.required && paymentform.expiry.$dirty && paymentform.expiry.$touched">*Expiry date is required</p>
+		<p ng-show="paymentform.securitycode.$error.required && paymentform.securitycode.$dirty && paymentform.securitycode.$touched">*Security code is required</p>
+		<p ng-show="paymentform.securitycode.$error.minlength && paymentform.securitycode.$dirty && paymentform.securitycode.$touched">*Security code must be shorter than/equal to 4 characters</p>
+		<p ng-show="paymentform.address.$error.required && paymentform.address.$dirty && paymentform.address.$touched">*Address is required</p>
+		<p ng-show="paymentform.address.$error.minlength && paymentform.address.$dirty && paymentform.address.$touched">*Address must be longer than 10 characters</p>
+		<p ng-show="paymentform.town.$error.required && paymentform.town.$dirty && paymentform.town.$touched">*Town/State/Province is required</p>
+		<p ng-show="paymentform.town.$error.minlength && paymentform.town.$dirty && paymentform.town.$touched">*Town/State/Province must be longer than 4 characters</p>
+		<p ng-show="paymentform.city.$error.required && paymentform.city.$dirty && paymentform.city.$touched">*City is required</p>
+		<p ng-show="paymentform.city.$error.minlength && paymentform.city.$dirty && paymentform.city.$touched">*City must be longer than 4 characters</p>
+	</div>
+	</form>
   </ion-content>
 </ion-view>

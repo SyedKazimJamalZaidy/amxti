@@ -2,6 +2,7 @@
 <ion-view view-title="User Details">
   <ion-content has-subheader="false">
   <h4>Please enter your details according to your passport:</h4>
+  <form name="userdetails">
     <div class="list">
     	<label class="item item-input item-select">
 		    <div class="input-label">
@@ -14,25 +15,46 @@
   		</label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">First Name</span>
-	    <input type="text" placeholder="First Name">
+	    <input type="text" placeholder="First Name" name="fname" ng-model="fname" ng-minlength="4" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Middle Name</span>
-	    <input type="text" placeholder="Middle Name">
+	    <input type="text" placeholder="Middle Name" name="mname" ng-model="mname">
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Last Name</span>
-	    <input type="text" placeholder="Last Name">
+	    <input type="text" placeholder="Last Name" name="lname" ng-model="lname" required>
 	  </label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Email</span>
-	    <input type="Email" placeholder="Email">
+	    <input type="Email" placeholder="Email" name="Email" ng-model="Email" ng-minlength="5" required>
 	  </label>
+	  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Country Code
+		    </div>
+		    <select>
+		      <option selected>None</option>
+		      <option ng-repeat="codes in countryCodes">{{codes.name}}{{codes.dial_code}}</option>
+		    </select>
+  		</label>
 	  <label class="item item-input item-floating-label">
 	    <span class="input-label">Contact #</span>
-	    <input type="number" placeholder="Contact #">
+	    <input type="number" placeholder="Contact #" name="number" ng-model="number" required>
 	  </label>
 	</div>
-	<button class="button button-assertive button-block" ng-click="toPayment()">Proceed to payment information</button>
+	<button class="button button-assertive button-block" ng-click="toPayment()" ng-disabled="userdetails.$invalid">Proceed to payment information</button>
+	<div class="padding">
+		<p ng-show="userdetails.fname.$error.required && userdetails.fname.$dirty && userdetails.fname.$touched">*First name is required</p>
+		<p ng-show="userdetails.fname.$error.minlength && userdetails.fname.$dirty && userdetails.fname.$touched">*First name must be longer than 4 characters</p>
+		<p ng-show="userdetails.mname.$error.minlength && userdetails.mname.$dirty && userdetails.mname.$touched">*Middle name must be longer than 4 characters</p>
+		<p ng-show="userdetails.fname.$error.required && userdetails.lname.$dirty && userdetails.lname.$touched">*Last name is required</p>
+		<p ng-show="userdetails.lname.$error.minlength && userdetails.lname.$dirty && userdetails.lname.$touched">*Last name must be longer than 4 characters</p>
+		<p ng-show="userdetails.Email.$error.required && userdetails.Email.$dirty && userdetails.Email.$touched">*Email is required</p>
+		<p ng-show="userdetails.Email.$error.minlength && userdetails.Email.$dirty && userdetails.Email.$touched">*Email must be longer than 5 characters</p>
+		<p ng-show="userdetails.Email.$invalid && !userdetails.Email.$pristine">*Enter correct email</p>
+		<p ng-show="userdetails.number.$error.required && userdetails.number.$dirty && userdetails.number.$touched">*Email is required</p>
+	</div>
+	</form>
   </ion-content>
 </ion-view>

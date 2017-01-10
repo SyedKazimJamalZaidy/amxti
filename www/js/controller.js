@@ -348,7 +348,18 @@ app.controller('FlightConfirmationController', function($scope, $ionicSideMenuDe
 //Flight Confirmation Controller End
 
 //User Details Controller
-app.controller('UserDetailsController', function($scope, $ionicSideMenuDelegate, $state) {
+app.controller('UserDetailsController', function($scope, $ionicSideMenuDelegate, $state, $http) {
+      $http({
+        method: "GET",
+        url: "js/countrycodes.json",
+        headers: {
+        "Content-Type" : "application/x-www-form-urlencoded"
+      }
+      }).then(function(response){
+        
+        $scope.countryCodes = response.data;
+        
+      });
       $scope.toPayment = function(){
         $state.go('menu.paymentmethod');
       }
@@ -356,7 +367,17 @@ app.controller('UserDetailsController', function($scope, $ionicSideMenuDelegate,
 //User Details Controller End
 
 //Payment Method Controller
-app.controller('PaymentMethodController', function($scope, $ionicSideMenuDelegate, $state) {
-      
+app.controller('PaymentMethodController', function($scope, $ionicSideMenuDelegate, $state, $http) {
+      $http({
+        method: "GET",
+        url: "js/countrycodes.json",
+        headers: {
+        "Content-Type" : "application/x-www-form-urlencoded"
+      }
+      }).then(function(response){
+        
+        $scope.countryCodes = response.data;
+        
+      });
     })
 //Payment Method Controller End

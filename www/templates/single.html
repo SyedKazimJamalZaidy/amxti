@@ -5,18 +5,19 @@
       </ion-nav-buttons>
 
       <ion-content has-subheader="false">
+      <form name="singleform">
               <div class="list">
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">From</span>
-                  <input type="text" placeholder="Jinnah International Airport" id="from">
+                  <input type="text" placeholder="Jinnah International Airport" id="from" name="from" ng-model="from" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">To</span>
-                  <input type="text" placeholder="Allama Iqbal International Airport" id="to">
+                  <input type="text" placeholder="Allama Iqbal International Airport" id="to" name="to" ng-model="to" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                   <span class="input-label">Departure Date</span>
-                  <input type="date" id="departDate">
+                  <input type="date" id="departDate" name="departDate" ng-model="departDate" required>
                 </label>
 
                 <div class="row">
@@ -48,9 +49,15 @@
                   </select>
                 </label>
               </div>
-              <a class="button button-block button-positive" ng-click="flightDetails()">
+              <a class="button button-block button-positive" ng-click="flightDetails()" ng-disabled="singleform.$invalid">
                 Proceed
               </a>
+              <div class="padding">
+                <p ng-show="singleform.from.$error.required && singleform.from.$dirty && singleform.from.$touched">*Departure destination required</p>
+                <p ng-show="singleform.to.$error.required && singleform.to.$dirty && singleform.to.$touched">*Arrival destination required</p>
+                <p ng-show="singleform.departDate.$error.required && singleform.departDate.$dirty && singleform.departDate.$touched">*Departure date required</p>
+              </div>
+              </form>
             </ion-content>
 
       <ion-tabs class="tabs-icon-top tabs-striped">

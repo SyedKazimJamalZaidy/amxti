@@ -1,4 +1,4 @@
-var app = angular.module('demo', ['ionic'])
+var app = angular.module('demo', ['ionic', 'ngMessages'])
     
     .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
    
