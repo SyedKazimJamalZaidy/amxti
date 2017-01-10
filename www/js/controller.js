@@ -381,3 +381,67 @@ app.controller('PaymentMethodController', function($scope, $ionicSideMenuDelegat
       });
     })
 //Payment Method Controller End
+
+//MultiCity Controller
+app.controller('MutliCityController', function($scope, $ionicSideMenuDelegate, $http) {
+      
+      //Addind/Removing Flights
+      $scope.inputs = [{value: null}];
+      $scope.addMore = function(index){
+        console.log(index + 2);
+        var limit = index + 2;
+        if(limit <= 4){
+          $scope.inputs.push({value: null});
+        }
+        else {
+          alert("Cannot add more");
+        }
+        
+      }
+      $scope.removeMore = function (index) {
+        $scope.inputs.splice(index, 1);
+      }
+
+
+      // Getting list of Airlines
+      $http({
+        method: "GET",
+        url: "js/airlines.json",
+        headers: {
+          "Content-Type" : "application/x-www-form-urlencoded"
+        }
+      }).then(function(response){
+
+      $scope.airlineInfo = response.data.AirlineInfo;
+      var airlineInfo = $scope.airlineInfo;
+      
+      var airlineName = [];
+
+      for (var i = 0; i < airlineInfo.length; i++) {
+        airlineName.push(airlineInfo[i].AirlineName);
+      }
+      $scope.airlineName = airlineName; 
+    });
+
+
+    // Getting list of Airports
+    $http({
+      method: "GET",
+      url: "js/airports.json",
+      headers: {
+        "Content-Type" : "application/x-www-form-urlencoded"
+      }
+    }).then(function(response){
+      result = response.data;
+      for (var i = 0; i < result.length; i++) {
+          destinationName.push(result[i].label);
+          destinationIATA.push(result[i].id);
+      }
+      $("#from").autocomplete({
+        source: destinationName
+      })
+      $("#to").autocomplete({
+        source: destinationName
+      })
+    });
+    })

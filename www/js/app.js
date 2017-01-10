@@ -58,7 +58,8 @@ var app = angular.module('demo', ['ionic', 'ngMessages'])
                 url: '/multicity',
                 views: {
                     'view-content': {
-                        templateUrl: 'templates/multicity.html'
+                        templateUrl: 'templates/multicity.html',
+                        controller: "MutliCityController"
                     }
                 }
             })
